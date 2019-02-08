@@ -117,35 +117,42 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+<dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-orm</artifactId>
-    <version>5.1.4.RELEASE</version>
+    <version>3.1.1.RELEASE</version>
 </dependency>
 
+
+<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
 <dependency>
     <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-core</artifactId>
-    <version>5.4.1.Final</version>
+    <artifactId>hibernate-entitymanager</artifactId>
+    <version>3.6.0.Final</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/org.hibernate.common/hibernate-commons-annotations -->
+
+<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-commons-annotations -->
 <dependency>
-    <groupId>org.hibernate.common</groupId>
+    <groupId>org.hibernate</groupId>
     <artifactId>hibernate-commons-annotations</artifactId>
-    <version>5.1.0.Final</version>
+    <version>3.2.0.Final</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+
+<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
 <dependency>
-    <groupId>org.hibernate.validator</groupId>
+    <groupId>org.hibernate</groupId>
     <artifactId>hibernate-validator</artifactId>
-    <version>6.0.13.Final</version>
+    <version>4.1.0.Final</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
+
+<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.0-api -->
 <dependency>
     <groupId>org.hibernate.javax.persistence</groupId>
-    <artifactId>hibernate-jpa-2.1-api</artifactId>
-    <version>1.0.0.Final</version>
+    <artifactId>hibernate-jpa-2.0-api</artifactId>
+    <version>1.0.1.Final</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 <dependency>
     <groupId>mysql</groupId>
