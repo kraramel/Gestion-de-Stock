@@ -30,6 +30,9 @@ public class Article implements Serializable {
 	
 	private String photo;
 	
+	public Article() {
+	}
+	
 	@ManyToOne
 	@JoinColumn( name = "idCategory")
 	private Category category;
