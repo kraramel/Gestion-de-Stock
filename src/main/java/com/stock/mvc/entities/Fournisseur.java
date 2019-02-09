@@ -80,6 +80,14 @@ public class Fournisseur implements Serializable{
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+
+	public List<CommandeFournisseur> getCommandeFournisseurs() {
+		return commandeFournisseurs;
+	}
+
+	public void setCommandeFournisseurs(List<CommandeFournisseur> commandeFournisseurs) {
+		this.commandeFournisseurs = commandeFournisseurs;
+	}
 	
 	
 

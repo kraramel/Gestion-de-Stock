@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-public class LigneCommandeClient {
+public class LigneCommandeClient implements Serializable{
 	
 	@Id
 	@GeneratedValue

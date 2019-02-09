@@ -89,6 +89,16 @@ public class Client implements Serializable{
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+
+
+	public List<CommandeClient> getCommandeClients() {
+		return commandeClients;
+	}
+
+
+	public void setCommandeClients(List<CommandeClient> commandeClients) {
+		this.commandeClients = commandeClients;
+	}
 	
 	
 	
