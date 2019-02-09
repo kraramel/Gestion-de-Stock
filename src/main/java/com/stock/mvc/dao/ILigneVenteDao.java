@@ -1,7 +1,7 @@
 package com.stock.mvc.dao;
 
-import com.stock.mvc.entities.Vente;
+import com.stock.mvc.entities.LigneVente;
 
-public interface ILigneVenteDao extends IGenericDao<Vente>{
+public interface ILigneVenteDao extends IGenericDao<LigneVente>{
 
 }
