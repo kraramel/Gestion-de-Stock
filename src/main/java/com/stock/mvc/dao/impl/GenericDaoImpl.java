@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import com.stock.mvc.dao.IGenericDao;
 
@@ -35,50 +36,65 @@ public class GenericDaoImpl<E> implements IGenericDao<E> {
 
 	@Override
 	public E update(E entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.merge(entity);
 	}
 
 	@Override
 	public List<E> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("select t from " + type.getSimpleName() + "t");
+		return query.getResultList();
 	}
 
 	@Override
 	public List<E> selectAll(String sortField, String sort) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("select t from " + type.getSimpleName() + "t order by" + sortField + " " + sort);
+		return query.getResultList();
 	}
 
 	@Override
 	public E getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(type, id);
 	}
 
 	@Override
 	public void remove(Long id) {
-		// TODO Auto-generated method stub
-		
+		E tab = em.getReference(type, id);
+		em.remove(tab);
 	}
 
 	@Override
 	public E findOne(String paramName, Object paramValue) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("select t from" + type.getSimpleName() + "t where" + paramName + " = :x");
+		query.setParameter(paramName, paramValue);
+		return query.getResultList().size() > 0 ? (E) query.getResultList().get(0) : null;
 	}
 
 	@Override
 	public E findOne(String[] paramNames, Object[] paramValues) {
-		// TODO Auto-generated method stub
-		return null;
+		if(paramNames.length != paramValues.length) {
+			return null;
+		}
+		
+		String queryString =" select e from " + type.getSimpleName() + "e where";
+		int len = paramNames.length;
+		for (int i=0; i< len; i++) {
+			queryString += "e." + paramNames[i] + "= :x" + i;
+			if ((i+1)< len) {
+				queryString += " and ";
+			}
+		}
+		Query query = em.createQuery(queryString);
+		for (int i = 0; i < paramValues.length; i++) {
+			query.setParameter("x" + i, paramValues[i]);	
+		}
+		return query.getResultList().size() > 0 ? (E) query.getResultList().get(0) : null;
 	}
 
 	@Override
 	public int findCountBy(String paramName, String paramValue) {
-		// TODO Auto-generated method stub
-		return 0;
+		Query query = em.createQuery("select t from" + type.getSimpleName() + "t where" + paramName + " = :x");
+		query.setParameter(paramName, paramValue);
+		return query.getResultList().size() > 0 ? ((Long) query.getSingleResult()).intValue() : 0;
 	}
 	
 	
